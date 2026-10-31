@@ -74,27 +74,36 @@ int exe(){
         if (y == 0){
             printf("Erro: Divisão por zero não é permitida.\n");
             end();
+        }else{
+           printf("Resultado: %.2f / %.2f = %.2f\n", x, y, divi(x, y)); 
+           end();
         }
-        printf("Resultado: %.2f / %.2f = %.2f\n", x, y, divi(x, y));
-        end();
+                
     }
     else if( op == 5){
        printf("Obrigado por usar a calculadora! Até a próxima.\n");
 
     }
     else{
-        int resultado;
-        if (resultado == 1){
-        printf("Nenhuma opção com esse caractere.\n");
-        printf("Digite uma opção válida, de 1 a 5\n");
+        if(op > 5){
+            op = 0;
+            printf("Nenhuma opção identificada com esse caractere\n");
+            printf("Digite uma opção válida, de 1 a 5\n");
+            printf("Opção: ");
+            scanf("%d", &op);
+            exe();
         }else{
             int c;
-            while ((c = getchar()) != '\n' && c != EOF);
-            printf("Nenhuma opção identificada por caractere\n");
+            while ((c = getchar()) != '\n' && c != EOF) {
+            printf("Nenhuma opção identificada com esse caractere\n");
             printf("Digite uma opção válida, de 1 a 5\n");
+            printf("Opção: ");
+            scanf("%d", &op);
+            exe();
+            }
         }
+        int c;
 
-        main();
     }
 }
 int end(){
