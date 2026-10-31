@@ -2,21 +2,21 @@
 #include <string.h>
 int op = 0;
  
-int soma(int a, int b){
-    int s = a + b;
+float soma(float a, float b){
+    float s = a + b;
     return s;
 }
 
-int sub(int a, int b){
+float sub(float a, float b){
     int s = a - b;
     return s;
 }
-int divi(int a, int b){
-    int s = a / b;
+float divi(float a, float b){
+    float s = a / b;
     return s;
 }
-int mul(int a, int b){
-    int s = a * b;
+float mul(float a, float b){
+    float s = a * b;
     return s;
 }
 int exe(void);
@@ -39,43 +39,42 @@ int main(){
 }
 int exe(){
     if (op == 1){
-        int x, y;
+        float x, y;
         printf("Digite o primeiro número: ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("Digite o segundo número: ");
-        scanf("%d", &y);
-        printf("Resultado: %d + %d = %d\n", x, y, soma(x, y));
+        scanf("%f", &y);
+        printf("Resultado: %.2f + %.2f = %.2f\n", x, y, soma(x, y));
         end();
     }
     else if(op == 2){
-        int x, y;
+        float x, y;
         printf("Digite o primeiro número: ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("Digite o segundo número: ");
-        scanf("%d", &y);
-        printf("Resultado: %d - %d = %d\n", x, y, sub(x, y));
+        scanf("%f", &y);
+        printf("Resultado: %.2f - %.2f = %.2f\n", x, y, sub(x, y));
         end();
     }
     else if(op == 3){
-        int x, y;
+        float x, y;
         printf("Digite o primeiro número: ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("Digite o segundo número: ");
-        scanf("%d", &y);
-        printf("Resultado: %d * %d = %d\n", x, y, mul(x, y));
+        scanf("%f", &y);
+        printf("Resultado: %.2f * %.2f = %.2f\n", x, y, mul(x, y));
         end();
     }
     else if(op == 4){
-        int x, y;
+        float x, y;
         printf("Digite o primeiro número: ");
-        scanf("%d", &x);
+        scanf("%f", &x);
         printf("Digite o segundo número: ");
-        scanf("%d", &y);
+        scanf("%f", &y);
         if (y == 0){
-            printf("Impossivel dividir por 0\n"); 
-            end();
+            printf("Erro: Divisão por zero não é permitida.\n"); 
         }
-        printf("Resultado: %d / %d = %d\n", x, y, divi(x, y));
+        printf("Resultado: %.2f / %.2f = %.2f\n", x, y, divi(x, y));
         end();
     }
     else if( op == 5){
@@ -84,7 +83,8 @@ int exe(){
     }
     else{
         printf("Nenhuma opção com esse numero.\n");
-        end();
+        printf("Digite uma opção válida, de 1 a 5\n");
+        main();
     }
 }
 int end(){
@@ -100,9 +100,6 @@ int end(){
         end();
     }
 }
-
-
-
 
 
 
