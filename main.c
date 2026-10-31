@@ -6,7 +6,6 @@ float soma(float a, float b){
     float s = a + b;
     return s;
 }
-
 float sub(float a, float b){
     float s = a - b;
     return s;
@@ -24,6 +23,7 @@ int end(void);
 int main(void);
 
 int main(){
+    int scan;
     printf("===============================\n");
     printf("   Calculadora Simples\n");
     printf("===============================\n");
@@ -33,8 +33,24 @@ int main(){
     printf("3. Multiplicação\n");
     printf("4. Divisão\n");
     printf("5. Sair\n");
-    printf("Opção: ");
-    scanf("%d", &op);
+    do {
+        printf("Opção: ");
+        scan = scanf("%d", &op);
+
+        if (scan == 0) {
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {
+            }
+
+            printf("Entrada inválida, selecione um número de 1 a 5\n");
+        }
+
+        if (scan == EOF) {
+            return 0;
+        }
+
+    } while (scan != 1 || op > 5 || op < 1);
+
     exe();
 }
 int exe(){
@@ -84,28 +100,8 @@ int exe(){
        printf("Obrigado por usar a calculadora! Até a próxima.\n");
 
     }
-    else{
-        if(op < 1 || op > 5){
-            op = 0;
-            printf("Nenhuma opção identificada com esse caractere\n");
-            printf("Digite uma opção válida, de 1 a 5\n");
-            printf("Opção: ");
-            scanf("%d", &op);
-            exe();
-        }else{
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF) {
-            printf("Nenhuma opção identificada com esse caractere\n");
-            printf("Digite uma opção válida, de 1 a 5\n");
-            printf("Opção: ");
-            scanf("%d", &op);
-            exe();
-            }
-        }
-        int c;
 
     }
-}
 int end(){
     char x;
     printf("Deseja realizar outra operação? (s/n)\n");
