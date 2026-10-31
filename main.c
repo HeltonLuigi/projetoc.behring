@@ -41,8 +41,9 @@ int main(){
             int c;
             while ((c = getchar()) != '\n' && c != EOF) {
             }
-
             printf("Entrada inválida, selecione um número de 1 a 5\n");
+        } else if (op < 1 || op > 5) {
+        printf("Opção inválida! Digite um número de 1 a 5.\n");
         }
 
         if (scan == EOF) {
