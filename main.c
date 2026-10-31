@@ -85,7 +85,7 @@ int exe(){
 
     }
     else{
-        if(op == 0 || op > 5){
+        if(op < 1 || op > 5){
             op = 0;
             printf("Nenhuma opção identificada com esse caractere\n");
             printf("Digite uma opção válida, de 1 a 5\n");
