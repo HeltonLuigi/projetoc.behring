@@ -8,7 +8,7 @@ float soma(float a, float b){
 }
 
 float sub(float a, float b){
-    int s = a - b;
+    float s = a - b;
     return s;
 }
 float divi(float a, float b){
@@ -72,7 +72,8 @@ int exe(){
         printf("Digite o segundo número: ");
         scanf("%f", &y);
         if (y == 0){
-            printf("Erro: Divisão por zero não é permitida.\n"); 
+            printf("Erro: Divisão por zero não é permitida.\n");
+            end();
         }
         printf("Resultado: %.2f / %.2f = %.2f\n", x, y, divi(x, y));
         end();
@@ -82,8 +83,17 @@ int exe(){
 
     }
     else{
-        printf("Nenhuma opção com esse numero.\n");
+        int resultado;
+        if (resultado == 1){
+        printf("Nenhuma opção com esse caractere.\n");
         printf("Digite uma opção válida, de 1 a 5\n");
+        }else{
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+            printf("Nenhuma opção identificada por caractere\n");
+            printf("Digite uma opção válida, de 1 a 5\n");
+        }
+
         main();
     }
 }
