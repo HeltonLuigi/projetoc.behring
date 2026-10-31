@@ -22,8 +22,12 @@ int exe(void);
 int end(void);
 int main(void);
 
-int main(){
-    int scan;
+
+int main(void) {
+    char linha[100];
+    char extra;
+    int leitura;
+
     printf("===============================\n");
     printf("   Calculadora Simples\n");
     printf("===============================\n");
@@ -33,27 +37,27 @@ int main(){
     printf("3. Multiplicação\n");
     printf("4. Divisão\n");
     printf("5. Sair\n");
+
     do {
         printf("Opção: ");
-        scan = scanf("%d", &op);
 
-        if (scan == 0) {
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF) {
-            }
-            printf("Entrada inválida, selecione um número de 1 a 5\n");
-        } else if (op < 1 || op > 5) {
-        printf("Opção inválida! Digite um número de 1 a 5.\n");
-        }
-
-        if (scan == EOF) {
+        if (fgets(linha, sizeof(linha), stdin) == NULL) {
             return 0;
         }
 
-    } while (scan != 1 || op > 5 || op < 1);
+        leitura = sscanf(linha, " %d %c", &op, &extra);
+
+        if (leitura != 1 || op < 1 || op > 5) {
+            printf("Opção inválida! Digite um número inteiro de 1 a 5.\n");
+        }
+
+    } while (leitura != 1 || op < 1 || op > 5);
 
     exe();
+
+    return 0;
 }
+
 int exe(){
     if (op == 1){
         float x, y;
